@@ -93,28 +93,28 @@ def get_data():
     return data
 
 #승인
-@app.route("/data1")
-def get_data1():       
+# @app.route("/data1")
+# def get_data1():       
 
-    data= json.loads(data2.sort_values(by='date_at').to_json(orient='records'))
+#     data= json.loads(data2.sort_values(by='date_at').to_json(orient='records'))
     
-    for i in range(len(data)):
+#     for i in range(len(data)):
         
-        data[i]['date_at'] = datetime.fromtimestamp(data[i]['date_at']/1000).strftime("%Y-%m-%d")
+#         data[i]['date_at'] = datetime.fromtimestamp(data[i]['date_at']/1000).strftime("%Y-%m-%d")
 
-    return data
+#     return data
 
-#등록지원 
-@app.route("/data2")
-def get_data2():       
+# #등록지원 
+# @app.route("/data2")
+# def get_data2():       
 
-    data= json.loads(data3.to_json(orient='records'))
+#     data= json.loads(data3.to_json(orient='records'))
     
-    for i in range(len(data2)):
+#     for i in range(len(data2)):
         
-        data[i]['date_at'] = datetime.fromtimestamp(data[i]['date_at']/1000).strftime("%Y-%m-%d")
+#         data[i]['date_at'] = datetime.fromtimestamp(data[i]['date_at']/1000).strftime("%Y-%m-%d")
 
-    return data
+#     return data
 
 if __name__ == '__main__':
 
