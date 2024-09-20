@@ -38,7 +38,7 @@ function App() {
                         element={<Chart0 />}
                     />
 
-                    {/* <Route
+                    <Route
                         exact
                         path="/chart1"
                         element={<Chart1 />}
@@ -48,7 +48,12 @@ function App() {
                         exact
                         path="/chart2"
                         element={<Chart2 />}
-                    /> */}
+                    />
+
+
+
+
+                    
                 </Routes>
             </Router>
             </div>

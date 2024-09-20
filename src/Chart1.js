@@ -35,7 +35,7 @@ function Chart1() {
   useEffect(() => {
     // Using fetch to fetch the api from 
     // flask server it will be redirected to proxy
-    fetch("/data").then((res) =>
+    fetch("/data1").then((res) =>
       res.json().then((data) => {
           // Setting a data from api
           setData(data);
@@ -289,10 +289,10 @@ const data2 = {
     <><div className="App"> 
     
 
-      <div style ={{width: '2000px'}}><Line data={data2} options={options} plugins={ChartDataLabels} /> </div>
+      <div style ={{width: '140vh', heigth: '140vh'}}><Line data={data2} options={options} plugins={ChartDataLabels} /> </div>
       <br />
       <br />
-      <div style ={{width: '2000px'}}><Line data={data3} options={options1} plugins={ChartDataLabels} /> </div>
+      <div style ={{width: '140vh', heigth: '140vh'}}><Line data={data3} options={options1} plugins={ChartDataLabels} /> </div>
   
      </div></>
     

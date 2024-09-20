@@ -1,8 +1,38 @@
 * {
+ 
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  
+  
+
 }
+
+.Line {
+  max-width: 800px;
+}
+
+.DataGrid{
+
+  top: 20%;
+
+}
+
+table {
+  border: 1px solid black;
+  border-collapse: collapse;
+  text-indent: initial;
+  border-spacing: 25px 20px;
+  height: 400px;
+  width: 600px;
+  background-color: lightgray;
+  position: relative;
+  top: 10%;
+  
+  
+  
+}
+
 
 body {
   font-family: sans-serif;
@@ -17,7 +47,7 @@ header {
   display: flex;
   flex-direction: row;
   align-items: left;
-  max-width: 1200px;
+  max-width: 2500px;
   margin: 10px 10px 20px 50px;
   padding: 40px 20px;
 }
@@ -221,7 +251,8 @@ header {
 
 /* page content */
 .content {
-  max-width: 1200px;
+
+  max-width: 2500px;
   margin: 0 auto;
   padding: 3rem 20px;
 }

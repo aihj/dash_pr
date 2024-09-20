@@ -33,7 +33,7 @@ function Chart2() {
   useEffect(() => {
     // Using fetch to fetch the api from 
     // flask server it will be redirected to proxy
-    fetch("/data").then((res) =>
+    fetch("/data2").then((res) =>
       res.json().then((data) => {
           // Setting a data from api
           setData(data);
@@ -53,7 +53,7 @@ function Chart2() {
       {
         yAxisID: "y1",
         type: "line",
-        label: "공고지원수",
+        label: "공고등록수",
         data: posts_care,
         backgroundColor: "rgb(240, 248, 255, 0.7)", // Setting up the background color for the dataset
         borderColor: "#000000", // Setting up the border color for the dataset
@@ -64,7 +64,7 @@ function Chart2() {
       {
         yAxisID: "y1",
         type: "line",
-        label: "공고등록수",
+        label: "공고지원수",
         data: apps_care,
         backgroundColor: "rgba(54, 162, 235, 0.5)",
         borderColor: "rgba(54, 162, 235, 1)",
@@ -168,11 +168,11 @@ function Chart2() {
 
         <><div className="App"> 
         
-        <div style ={{width: '2000px'}}><Line data={data2} options={options} plugins={ChartDataLabels} /> 
+        <div style ={{width: '140vh', heigth: '140vh'}}><Line data={data2} options={options} plugins={ChartDataLabels} /> 
         
         </div>
-    
-        </div></>    
+     
+        </div></>   
                 
     );
 
