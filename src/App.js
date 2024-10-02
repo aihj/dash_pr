@@ -1,6 +1,4 @@
-// Filename - App.js
 
-import "./App.css";
 // importing components from react-router-dom package
 
 import Header from "./top/Header";
@@ -18,13 +16,18 @@ import Chart0 from "./Chart0";
 import Chart1 from "./Chart1";
 import Chart2 from "./Chart2";
 
+import Dashboard from './component/Dashboard';
+
 
 // import About component
 function App() {
     return (
-        <>
+
+        
+        <>    
         <div className="App">
-          <Header />
+            
+          
           <br/>
             {/* This is the alias of BrowserRouter i.e. Router */}
             <Router>
@@ -48,15 +51,10 @@ function App() {
                         exact
                         path="/chart2"
                         element={<Chart2 />}
-                    />
-
-
-
-
-                    
+                    />                    
                 </Routes>
             </Router>
-            </div>
+        </div>
         </>
         
     );
