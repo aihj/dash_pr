@@ -256,38 +256,22 @@ header {
   gap: 20px;
 }
 
-.custom-datepicker{
-  border: 1px solid blue;
-}
 
-.form{
-  font-family: "verdana";
-
-  color: gray;
-  width: 80%;
-  border: 1px solid blue;
-  padding: 10px;
-  border-radius: 5px;
-  box-sizing: border-box;
-  box-shadow: 2px 2px 5px rgba(1, 102, 255, 0.94);
-  
-
-}
 
 .DateContainer {
 
-  background-color: #f8f8f8;
+  background-color: #dbdada;
   display: flex;
   align-items: center;
 
-  width: 350px;
-  height: 40px;
+  width: 500px;
+  height: 80px;
   border: 0.5px solid black;
   border-radius: 8px;
-  gap: 10px;  
-  padding: 6px 20px 0 0;
-  /* padding-right: 15px; */
-  margin-left: 80px;
+  
+  padding: 25px 0 0 0;
+  padding-left: 20px;
+  margin-left: 20px;
   
 
   /* background-color: white; -->set this background color to whatever 
@@ -295,25 +279,25 @@ header {
 }
 
 .radio {
-  margin-left: 120px;
+  margin-left: 60px;
 }
 
 .customInput{
   background-color: #fff;
   color: darkgray;
   font-weight: bold;
-  padding: 4px 4px 4px 25px;
+  padding: 4px 4px 4px 20px;
   border-radius: 0;    
   
   height: 20px;
-  width: 100px;
+  width: 120px;
   
 }
 
 .dateInput {
-  width: 100%;
+  width: 80%;
   height: 100%;
-  font-size:12px;
+  font-size:15px;
 
 
   font-weight: bold;
@@ -324,7 +308,7 @@ header {
 .dateInput2 {
   width: 100%;
   height: 100%;
-  font-size:12px;
+  font-size:15px;
   font-weight: bold;
   
   color: darkslategray;

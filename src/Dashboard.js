@@ -1,6 +1,8 @@
-import React, { useState, useEffect } from 'react';
 
-import { useRef } from 'react';
+import Card from "./Card";
+
+import React, { useState, useEffect, useRef } from 'react';
+
 import 'react-data-grid/lib/styles.css';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -38,9 +40,7 @@ ChartJS.register(
 	LineElement
 );
 
-function Chart0() {  
-
-
+const Dashboard = () => {
   const [data, setData] = useState();
 
   const [clickdata, setClickdata] = useState({date_at: "Please pick a date", care_A:0, care_B:0, care_C:0, service_care: 0, service_dh:0, service_hk:0, cancel_care:0, cancel_dh:0, cancel_hk:0, pay_care:0, pay_dh:0, pay_hk:0, posts_care:0, posts_hk:0, posts_dh:0, apps_care: 0, apps_dh:0, apps_hk:0, approved_amt: 0, canceled_amt:0, approved_amt_h: 0, canceled_amt_h:0, approved_amt_d: 0, canceled_amt_d:0});
@@ -52,9 +52,6 @@ function Chart0() {
 
   const [startDate, setStartDate] = useState(new Date().setYear(2024-1));
   const [endDate, setEndDate] = useState(new Date().setYear(2024));
-
- 
-  
 
   useEffect((data) => {
     // Using fetch to fetch the api from 
@@ -68,10 +65,7 @@ function Chart0() {
       })
   );
   }, [data]);
-
-
-
-  
+    
   var labels = data && data.map(item => item.date_at);  
   var service_care = data && data.map(item => item.service_care);
   var service_dh = data && data.map(item => item.service_dh);
@@ -382,19 +376,16 @@ const data_d = {
     { field: "전주대비" ,width: 100, cellClassRules: cellClassRules}
     ];
 
-    
-      
 
-   return (
+    return (
+    <div className="h-screen grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 grid-rows-8 md:grid-rows-7 xl:grid-rows-5 auto-rows-fr gap-4 p-5 font-quicksand">
+        <div className="col-span-1 md:col-span-2 xl:col-span-2 row-span-1">
+            <Card>
 
-        <>
-
-        <br />
-       
-        <div className ="DateContainer">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <span className="dateInput" >
+            <div className ="DateContainer">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <span className="dateInput">
             {"시작일"}
-        
+       
         <DatePicker 
         className = "customInput"        
         selected={startDate}
@@ -402,9 +393,7 @@ const data_d = {
         maxDate={new Date("2024-09-25")}
         onChange ={date => setStartDate(date)}
         dateFormat="yyyy-MM-dd"/>
-        
          </span>
-         
         
         
         <span className="dateInput2">
@@ -420,13 +409,13 @@ const data_d = {
          </span>
         
         </div>
+            </Card>
+        </div>
+        <div className="md:col-span-2 row-span-5">
+            <Card>
 
 
-        
-        <div className="App">   
-         
-
-        <div className="radio"> 
+            <div className="radio"> 
          <br />   
 
         <input type="radio" name="release" checked={status === 1} onClick={(e) => radioHandler(1)} /> 간병&nbsp;
@@ -442,72 +431,85 @@ const data_d = {
         <br/>
         <Line data={data_c} options={options} plugins={ChartDataLabels}  /> 
         
-        </div>           
+        </div>     </div>      
 
-        <div style= {{textAlign: 'left'}}>   
-            <h4>선택일: {clickdata.date_at}</h4>
+       }
 
-        <div style = {{textAlign: 'center'}}>
-        <div className="ag-theme-alpine" style={{height: 490, width: 407}}>
-        <AgGridReact
-               rowData={row} columnDefs={colDefs}>
-               
-           </AgGridReact>
-        </div>
-        </div>
-        </div> 
-        </div> }
-
-
-        
-        {status === 2 &&  <div style ={{display: 'flex', gap: '20px' }}>        
-        <div style ={{width: '100vh', height: '140vh'}}>
+        {status === 2&&  
+        <div style ={{display: 'flex', gap: '20px' }}>        
+        <div style ={{width: '125vh', height: '140vh'}}>
         
         <br/>
         <Line data={data_h} options={options} plugins={ChartDataLabels}  /> 
         
-        </div>  
-        <div style= {{textAlign: 'left'}}>    
-            <h4>선택일: {clickdata.date_at}</h4>
-        <div style = {{textAlign: 'center'}}>
-        <div className="ag-theme-alpine" style={{height: 370, width: 407}}>
-        <AgGridReact
-               rowData={rows1} columnDefs={colDefs}>
-               
-           </AgGridReact>
-        </div>          
-        </div>
-        </div>
-        </div>        
+        </div>           
 
-        }
-        {status === 3 && <div style ={{display: 'flex', gap: '20px' }}>        
+         </div>
+            }
+
+        {status === 3&&  
+        <div style ={{display: 'flex', gap: '20px' }}>        
         <div style ={{width: '125vh', height: '140vh'}}>
         
         <br/>
         <Line data={data_d} options={options} plugins={ChartDataLabels}  /> 
         
         </div>           
-        <div style= {{textAlign: 'left'}}>   
-            <h4>선택일: {clickdata.date_at}</h4>
+
+        </div>
+            }
+
+            </Card>
+        </div>
+
+
+
+        <div>
+            <Card>
+            <div style= {{textAlign: 'left'}}>   
+            <h4>오늘일자 2024-10-03 </h4>
+            <h4>선택일: {clickdata.date_at}</h4></div></Card>
+        </div>
+
+
+
+        <div className="row-span-2 xl:row-span-4">
+            <Card>
+
+
+        {status===1 &&
         <div style = {{textAlign: 'center'}}>
-        <div className="ag-theme-alpine" style={{height: 370, width: 407}}>
+        <div className="ag-theme-alpine" style={{height: 475, width: 420}}>
+        <AgGridReact
+               rowData={row} columnDefs={colDefs}>               
+           </AgGridReact>
+        </div>          
+        </div>}
+
+        {status===2 && <div style = {{textAlign: 'center'}}>
+        <div className="ag-theme-alpine" style={{height: 400, width: 420}}>
+        <AgGridReact
+               rowData={rows1} columnDefs={colDefs}>
+               
+           </AgGridReact>
+        </div>          
+        </div>}
+
+        {status===3 && <div style = {{textAlign: 'center'}}>
+        <div className="ag-theme-alpine" style={{height: 400, width: 420}}>
         <AgGridReact
                rowData={rows2} columnDefs={colDefs}>
                
            </AgGridReact>
         </div>          
+        </div>}
+        
+        
+        </Card>
         </div>
-        </div>
-        </div> }
-        </div>                 
-       
-      
 
-      </>
-        );
+    </div>
+    );
+};
 
-    }
-    
-
-export default Chart0;
+export default Dashboard;

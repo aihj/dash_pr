@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import Chart from "chart.js/auto"; // Importing the Chart.js library
 
 import { Line } from "react-chartjs-2"; 
 import DatePicker from 'react-datepicker';
