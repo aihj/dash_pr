@@ -426,7 +426,7 @@ const data_d = {
         <div className="App">   
          
 
-        <div className="radio"> 
+        <div className="radio" style ={{textAlign: 'left'}}> 
          <br />   
 
         <input type="radio" name="release" checked={status === 1} onClick={(e) => radioHandler(1)} /> 간병&nbsp;

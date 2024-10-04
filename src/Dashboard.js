@@ -184,7 +184,7 @@ const data_d = {
                     step: 
                         {size:20},
                     font:
-                        {size:15},
+                        {size:10},
                     
                 }
                 
@@ -197,12 +197,12 @@ const data_d = {
                 title: {
                     display: true,
                     text: "서비스 진행 수",
-                    font: {size:20}
+                    font: {size:15}
                 },
 
                 ticks: {
                     font:
-                        {size:16},
+                        {size:10},
                 },
                 min: 0,
                 max: Math.max.data,
@@ -218,7 +218,7 @@ const data_d = {
                 display: true,
                 text: '서비스 진행 - 7일 평균',
                 font : {
-                    size: 25
+                    size: 15
                 }
 
 
@@ -230,7 +230,7 @@ const data_d = {
                 labels: {
                     
                     font:{
-                        size: 18
+                        size: 10
                     },
 
                     
@@ -257,10 +257,10 @@ const data_d = {
 
             tooltip: {
                 titleFont: {
-                    size: 25
+                    size: 18    
                 },
                 bodyFont: {
-                    size: 25
+                    size: 16
                 }
                 
             }},
@@ -368,19 +368,24 @@ const data_d = {
     };
 
     const colDefs= [
-    { field: "data" ,  width: 120},
-    { field: "건수", width: 80 },
+    { field: "data" ,  width: 120, height: 20},
+    { field: "건수", width: 90 },
 
-    { field: "전일대비", width: 100, cellClassRules: cellClassRules},
+    { field: "전일대비", width: 90, cellClassRules: cellClassRules},
 
-    { field: "전주대비" ,width: 100, cellClassRules: cellClassRules}
+    { field: "전주대비" ,width: 90, cellClassRules: cellClassRules}
     ];
+
+    const today = moment().format('YYYY-MM-DD');
 
 
     return (
-    <div className="h-screen grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 grid-rows-8 md:grid-rows-7 xl:grid-rows-5 auto-rows-fr gap-4 p-5 font-quicksand">
-        <div className="col-span-1 md:col-span-2 xl:col-span-2 row-span-1">
+    <div className="h-vdh grid grid-cols-3 grid-rows-3  gap-5 p-1 font-quicksand">
+        
+
+        <div className="col-span-2 row-span-3">
             <Card>
+
 
             <div className ="DateContainer">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <span className="dateInput">
@@ -407,16 +412,12 @@ const data_d = {
         onChange ={date => setEndDate(date)}
         dateFormat="yyyy-MM-dd"/>
          </span>
-        
-        </div>
-            </Card>
-        </div>
-        <div className="md:col-span-2 row-span-5">
-            <Card>
 
+         </div>
 
-            <div className="radio"> 
+        <div className="radio" style={{textAlign: 'left'}}> 
          <br />   
+         <br /> 
 
         <input type="radio" name="release" checked={status === 1} onClick={(e) => radioHandler(1)} /> 간병&nbsp;
         <input type="radio" name="release" checked={status === 2} onClick={(e) => radioHandler(2)} /> 가사&nbsp;
@@ -426,7 +427,7 @@ const data_d = {
         
         {status === 1 &&  
         <div style ={{display: 'flex', gap: '20px' }}>        
-        <div style ={{width: '125vh', height: '140vh'}}>
+        <div style ={{width: '120vh', height: '100vh'}}>
         
         <br/>
         <Line data={data_c} options={options} plugins={ChartDataLabels}  /> 
@@ -437,7 +438,7 @@ const data_d = {
 
         {status === 2&&  
         <div style ={{display: 'flex', gap: '20px' }}>        
-        <div style ={{width: '125vh', height: '140vh'}}>
+        <div style ={{width: '120vh', height: '100vh'}}>
         
         <br/>
         <Line data={data_h} options={options} plugins={ChartDataLabels}  /> 
@@ -449,7 +450,7 @@ const data_d = {
 
         {status === 3&&  
         <div style ={{display: 'flex', gap: '20px' }}>        
-        <div style ={{width: '125vh', height: '140vh'}}>
+        <div style ={{width: '120vh', height: '100vh'}}>
         
         <br/>
         <Line data={data_d} options={options} plugins={ChartDataLabels}  /> 
@@ -458,28 +459,26 @@ const data_d = {
 
         </div>
             }
-
-            </Card>
+        </Card>
         </div>
+        
+
+    
 
 
 
-        <div>
+        <div className="col-span-1 row-span-3 ">
             <Card>
-            <div style= {{textAlign: 'left'}}>   
-            <h4>오늘일자 2024-10-03 </h4>
-            <h4>선택일: {clickdata.date_at}</h4></div></Card>
-        </div>
-
-
-
-        <div className="row-span-2 xl:row-span-4">
-            <Card>
-
-
-        {status===1 &&
+            <div className="date" style= {{textAlign: 'left'}}>   
+            <h4> Today {today} </h4>
+            <br />
+            <br />
+            <h4> View Date: {clickdata.date_at}</h4></div>
+            <br />
+            
+            {status===1 &&
         <div style = {{textAlign: 'center'}}>
-        <div className="ag-theme-alpine" style={{height: 475, width: 420}}>
+        <div className="ag-theme-alpine" style={{height: 500, width: 405}}>
         <AgGridReact
                rowData={row} columnDefs={colDefs}>               
            </AgGridReact>
@@ -487,7 +486,7 @@ const data_d = {
         </div>}
 
         {status===2 && <div style = {{textAlign: 'center'}}>
-        <div className="ag-theme-alpine" style={{height: 400, width: 420}}>
+        <div className="ag-theme-alpine" style={{height: 380, width: 420}}>
         <AgGridReact
                rowData={rows1} columnDefs={colDefs}>
                
@@ -496,7 +495,7 @@ const data_d = {
         </div>}
 
         {status===3 && <div style = {{textAlign: 'center'}}>
-        <div className="ag-theme-alpine" style={{height: 400, width: 420}}>
+        <div className="ag-theme-alpine" style={{height: 380, width: 420}}>
         <AgGridReact
                rowData={rows2} columnDefs={colDefs}>
                
@@ -507,6 +506,14 @@ const data_d = {
         
         </Card>
         </div>
+            
+            
+            
+            
+
+
+
+
 
     </div>
     );

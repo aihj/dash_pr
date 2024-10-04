@@ -15,11 +15,11 @@ a{
   
   align-items: center;
   background-color: #263343;
-  padding: 8px 12px;
+  padding: 4px 12px;
 }
 
 .navbar__logo{
-  font-size: 24px;
+  font-size: 18px;
   color: white;
   padding-left: 20px;  
 
@@ -27,17 +27,18 @@ a{
 
 
 .navbar__menu{
+  font-size: 12px;
   display: flex;
 
   
   list-style: none;
-  padding-left: 80px;
+  padding-left: 40px;
   padding-right: 20px;
 
 }
 
 .navbar__menu li{
-  padding: 25px 12px;
+  padding: 12px 8px;
 }
 
 .navbar__menu li:hover{
