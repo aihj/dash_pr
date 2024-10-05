@@ -51,12 +51,14 @@ const Dashboard1 = () => {
   
     const [startDate, setStartDate] = useState(new Date().setYear(2024-1));
     const [endDate, setEndDate] = useState(new Date().setYear(2024));  
+
+    const request_from = "https://serverapp-be89955346fa.herokuapp.com/data"
    
 
-    useEffect((data) => {
+    useEffect(() => {
       // Using fetch to fetch the api from 
       // flask server it will be redirected to proxy
-      fetch("/data").then((res) =>
+      fetch(request_from).then((res) =>
         res.json().then((data) => {
             // Setting a data from api
             setData(data.filter(item => item["date_at"] <= moment(endDate).format('YYYY-MM-DD')
@@ -294,14 +296,14 @@ const Dashboard1 = () => {
                 display: true,
                 text: '승인/취소 - 7일 평균',
                 font : {
-                    size: 25
+                    size: 22
                 }},
 
             legend: {
                 display: true,
                 labels: {
                     font: {
-                        size: 20
+                        size: 18
                     }
                 }},
 
@@ -381,14 +383,14 @@ const Dashboard1 = () => {
                 display: true,
                 text: '승인/취소액 (단위: 억원) - 7일 평균',
                 font : {
-                    size: 25
+                    size: 22
                 }},
             legend: {
                 display: true,
                 labels: {
                     
                     font: {
-                        size: 20
+                        size: 18
                     }
                 }
             },
@@ -532,7 +534,7 @@ const Dashboard1 = () => {
     const today = moment().format('YYYY-MM-DD');
 
     return (
-    <div className="h-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 grid-rows-10 gap-5 p-5 font-quicksand">
+    <div className="h-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 grid-rows-10 gap-5 p-1 font-quicksand">
              
         <div className="col-span-1 md:col-span-2 xl:col-span-2 row-span-1">
             <Card>

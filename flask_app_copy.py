@@ -40,6 +40,10 @@ s_need = (pd.Timestamp.today(tz = 'Asia/Seoul') - pd.Timedelta(days = 365 + 6)).
 s_date1 = '2022-01-01'
 s_need1 = '2022-01-07'
 
+
+
+
+
 q = f"""
 select *
     from carenation_overview

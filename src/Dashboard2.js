@@ -53,13 +53,14 @@ const Dashboard2 = () => {
   
     const [startDate, setStartDate] = useState(new Date().setYear(2024-1));
     const [endDate, setEndDate] = useState(new Date().setYear(2024));
+    const request_from = "https://serverapp-be89955346fa.herokuapp.com/data"
    
     
   
-    useEffect((data) => {
+    useEffect(() => {
       // Using fetch to fetch the api from 
       // flask server it will be redirected to proxy
-      fetch("/data").then((res) =>
+      fetch(request_from).then((res) =>
         res.json().then((data) => {
             // Setting a data from api
             setData(data.filter(item => item["date_at"] <= moment(endDate).format('YYYY-MM-DD')
@@ -209,14 +210,14 @@ const Dashboard2 = () => {
             display: true,
             text: '최근 공고등록/지원 - 7일 평균',
             font : {
-                size: 25
+                size: 22
             }},
 
         legend: {
             display: true,
             labels: {
                 font: {
-                    size: 20
+                    size: 18
                 }
             }},
         datalabels: {
@@ -350,8 +351,9 @@ const Dashboard2 = () => {
     const today = moment().format('YYYY-MM-DD');
 
     return (
-    <div className="h-screen grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 grid-rows-8 md:grid-rows-7 xl:grid-rows-5 auto-rows-fr gap-4 p-5 font-quicksand">
-        <div className="col-span-1 md:col-span-2 xl:col-span-2 row-span-1">
+        <div className="h-screen grid grid-cols-3 grid-rows-5 auto-rows-fr gap-5 p-1 font-quicksand">
+        <div className="grid gap-y-5 column col-span-2">
+        <div className="col-span-1 md:col-span-2 xl:col-span-2 row-span-1 max-h-24">
             <Card>
 
             <div className ="DateContainer">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -383,7 +385,9 @@ const Dashboard2 = () => {
         </div>
             </Card>
         </div>
-        <div className="md:col-span-2 row-span-5">
+
+        
+        <div className="row-span-1 col-span-2 h-1/2">
             <Card>
 
 
@@ -398,7 +402,7 @@ const Dashboard2 = () => {
         
         {status === 1 &&  
         <div style ={{display: 'flex', gap: '20px' }}>        
-        <div style ={{width: '125vh', height: '140vh'}}>
+        <div style ={{width: '100vh', height: '130vh'}}>
         
         <br/>
         <Line data={data_c} options={options} plugins={ChartDataLabels}  /> 
@@ -433,10 +437,19 @@ const Dashboard2 = () => {
 
             </Card>
         </div>
+        </div>
+        
+
+        
 
 
 
-        <div>
+        <div className="grid gap-y-5 column col-span-1">
+        <div className="col-span-1 row-span-1 min-h-24">
+
+        </div>
+
+            <div className="col-span-1 row-span-1 min-h-24">
             <Card>
             <div style= {{textAlign: 'left'}}>   
             <h4>오늘일자 {today} </h4>
@@ -445,7 +458,7 @@ const Dashboard2 = () => {
 
 
 
-        <div className="row-span-2 xl:row-span-4">
+        <div className="row-span-3 h-auto">
             <Card>
 
 
@@ -479,7 +492,9 @@ const Dashboard2 = () => {
         
         </Card>
         </div>
+        
 
+    </div>
     </div>
     );
 };

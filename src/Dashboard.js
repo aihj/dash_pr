@@ -40,6 +40,8 @@ ChartJS.register(
 	LineElement
 );
 
+
+
 const Dashboard = () => {
   const [data, setData] = useState();
 
@@ -53,11 +55,14 @@ const Dashboard = () => {
   const [startDate, setStartDate] = useState(new Date().setYear(2024-1));
   const [endDate, setEndDate] = useState(new Date().setYear(2024));
 
-  useEffect((data) => {
+  const request_from ="https://serverapp-be89955346fa.herokuapp.com/data"
+
+  useEffect(() => {
+
     // Using fetch to fetch the api from 
     // flask server it will be redirected to proxy
-    fetch("/data").then((res) =>
-      res.json().then((data) => {
+    fetch(request_from)
+    .then((res) => res.json().then((data) => {
           // Setting a data from api
           setData(data.filter(item => item["date_at"] <= moment(endDate).format('YYYY-MM-DD')
           &&  item["date_at"]>=  moment(startDate).format('YYYY-MM-DD') ));
@@ -197,12 +202,12 @@ const data_d = {
                 title: {
                     display: true,
                     text: "서비스 진행 수",
-                    font: {size:15}
+                    font: {size:18}
                 },
 
                 ticks: {
                     font:
-                        {size:10},
+                        {size:18},
                 },
                 min: 0,
                 max: Math.max.data,
@@ -218,7 +223,7 @@ const data_d = {
                 display: true,
                 text: '서비스 진행 - 7일 평균',
                 font : {
-                    size: 15
+                    size: 22
                 }
 
 
@@ -230,7 +235,7 @@ const data_d = {
                 labels: {
                     
                     font:{
-                        size: 10
+                        size: 18
                     },
 
                     
@@ -380,12 +385,11 @@ const data_d = {
 
 
     return (
-    <div className="h-vdh grid grid-cols-3 grid-rows-3  gap-5 p-1 font-quicksand">
+    <div className="h-screen grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 grid-rows-8 md:grid-rows-7 xl:grid-rows-5 auto-rows-fr gap-5 p-1 font-quicksand">
+        <div className="grid gap-y-5 column col-span-2">
+        <div className="col-span-1 md:col-span-2 xl:col-span-2 row-span-1 max-h-24">
         
-
-        <div className="col-span-2 row-span-3">
             <Card>
-
 
             <div className ="DateContainer">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <span className="dateInput">
@@ -412,12 +416,18 @@ const data_d = {
         onChange ={date => setEndDate(date)}
         dateFormat="yyyy-MM-dd"/>
          </span>
-
+         </div>
+        </Card>
+        
          </div>
 
+
+
+         <div className="row-span-1 col-span-2 h-1/2">
+            <Card>
+        <br />
         <div className="radio" style={{textAlign: 'left'}}> 
-         <br />   
-         <br /> 
+        
 
         <input type="radio" name="release" checked={status === 1} onClick={(e) => radioHandler(1)} /> 간병&nbsp;
         <input type="radio" name="release" checked={status === 2} onClick={(e) => radioHandler(2)} /> 가사&nbsp;
@@ -427,7 +437,7 @@ const data_d = {
         
         {status === 1 &&  
         <div style ={{display: 'flex', gap: '20px' }}>        
-        <div style ={{width: '120vh', height: '100vh'}}>
+        <div style ={{width: '100vh', height: '125vh'}}>
         
         <br/>
         <Line data={data_c} options={options} plugins={ChartDataLabels}  /> 
@@ -461,21 +471,26 @@ const data_d = {
             }
         </Card>
         </div>
+
+        </div>
+
+        <div className="grid gap-y-5 column col-span-1">
+            <div className="col-span-1 row-span-1 min-h-24">
+
+            </div>
         
-
-    
-
-
-
-        <div className="col-span-1 row-span-3 ">
+        <div className="col-span-1 min-h-24">
             <Card>
-            <div className="date" style= {{textAlign: 'left'}}>   
-            <h4> Today {today} </h4>
-            <br />
-            <br />
-            <h4> View Date: {clickdata.date_at}</h4></div>
-            <br />
-            
+            <div style= {{textAlign: 'left'}}>   
+            <h4> 오늘일자 {today} </h4>
+            <h4> 선택일: {clickdata.date_at}</h4>
+            </div>
+            </Card>
+        </div>
+
+
+        <div className="row-span-3 h-auto">
+        <Card>
             {status===1 &&
         <div style = {{textAlign: 'center'}}>
         <div className="ag-theme-alpine" style={{height: 500, width: 405}}>
@@ -505,16 +520,10 @@ const data_d = {
         
         
         </Card>
+        </div>     
+        
+        
         </div>
-            
-            
-            
-            
-
-
-
-
-
     </div>
     );
 };
