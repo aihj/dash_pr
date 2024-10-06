@@ -56,8 +56,8 @@ a{
 
   
   list-style: none;
-  padding-left: 40px;
-  padding-right: 20px;
+  padding: 4px 20px 0 50px;
+
 
 }
 
@@ -102,7 +102,6 @@ a{
 function App() {
     return (
 
-        
         <>    
         
         <Header>
@@ -130,7 +129,7 @@ function App() {
                       
           <br/>
             {/* This is the alias of BrowserRouter i.e. Router */}
-            <Router basename={process.env.PUBLIC_URL}>
+            <Router>
                 <Routes>
                     {/* This route is for home component 
           with exact path "/", in component props 

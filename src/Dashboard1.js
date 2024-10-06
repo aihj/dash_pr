@@ -534,9 +534,10 @@ const Dashboard1 = () => {
     const today = moment().format('YYYY-MM-DD');
 
     return (
-    <div className="h-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 grid-rows-10 gap-5 p-1 font-quicksand">
+        <div className="h-screen grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 grid-rows-8 md:grid-rows-7 xl:grid-rows-5 auto-rows-fr gap-5 p-1 font-quicksand">
              
-        <div className="col-span-1 md:col-span-2 xl:col-span-2 row-span-1">
+        <div className="grid gap-y-5 column col-span-2">
+        <div className="col-span-1 md:col-span-2 xl:col-span-2 row-span-1 max-h-24">
             <Card>
 
             <div className ="DateContainer">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -570,7 +571,7 @@ const Dashboard1 = () => {
         </div>
 
 
-        <div className="xl:col-span-2 row-span-9">
+        <div className="row-span-1 col-span-2 h-auto">
             <Card> 
             <div className="radio" style={{textAlign: 'left'}}> 
          <br />   
@@ -583,7 +584,7 @@ const Dashboard1 = () => {
         
         {status === 1 &&  
         <div style ={{display: 'flex', gap: '10px' }}>        
-        <div style ={{width: '125vh', height: '70vh'}}>
+        <div style ={{width: '110vh', height: '80vh'}}>
         
         <br/>
         <Line data={data_c} options={options} plugins={ChartDataLabels}  /> 
@@ -594,7 +595,7 @@ const Dashboard1 = () => {
 
         {status === 2&&  
         <div style ={{display: 'flex', gap: '10px' }}>        
-        <div style ={{width: '125vh', height: '70vh'}}>
+        <div style ={{width: '110vh', height: '80vh'}}>
         
         <br/>
         <Line data={data_h} options={options} plugins={ChartDataLabels}  /> 
@@ -606,7 +607,7 @@ const Dashboard1 = () => {
 
         {status === 3&&  
         <div style ={{display: 'flex', gap: '10px' }}>        
-        <div style ={{width: '125vh', height: '70vh'}}>
+        <div style ={{width: '110vh', height: '80vh'}}>
         
         <br/>
         <Line data={data_d} options={options} plugins={ChartDataLabels} /> </div> </div>}
@@ -617,7 +618,7 @@ const Dashboard1 = () => {
 
         {status === 1 &&  
         <div style ={{display: 'flex', gap: '10px' }}>        
-        <div style ={{width: '125vh', height: '70vh'}}>
+        <div style ={{width: '110vh', height: '80vh'}}>
         
         <Line data={amt_c} options={options1} plugins={ChartDataLabels}  /> 
         
@@ -625,7 +626,7 @@ const Dashboard1 = () => {
 
         {status === 2&&  
         <div style ={{display: 'flex', gap: '10px' }}>        
-        <div style ={{width: '125vh', height: '70vh'}}>
+        <div style ={{width: '110vh', height: '80vh'}}>
         
         
         <Line data={amt_h} options={options1} plugins={ChartDataLabels}  /> 
@@ -637,7 +638,7 @@ const Dashboard1 = () => {
 
         {status === 3&&  
         <div style ={{display: 'flex', gap: '10px' }}>        
-        <div style ={{width: '125vh', height: '70vh'}}>
+        <div style ={{width: '110vh', height: '80vh'}}>
         
         
         <Line data={amt_d} options={options1} plugins={ChartDataLabels}  /> 
@@ -648,21 +649,25 @@ const Dashboard1 = () => {
             } 
             </Card>
         </div>
+        </div>
 
 
      
+        <div className="grid gap-y-5 column col-span-1">
+            <div className="col-span-1 row-span-1 min-h-24">
+            </div>
 
-
-        <div>
+        <div className="col-span-1 min-h-24">
             <Card>
             <div style= {{textAlign: 'left'}}>   
             <h4>오늘일자 {today} </h4>
-            <h4>선택일: {clickdata.date_at}</h4></div></Card>
+            <h4>선택일: {clickdata.date_at}</h4></div>
+            </Card>
         </div>
 
 
 
-        <div className="row-span-2 xl:row-span-5">
+        <div className="row-span-3 h-auto">
             <Card>
 
 
@@ -697,6 +702,7 @@ const Dashboard1 = () => {
         </Card>
         </div>
 
+        </div>
     </div>
     );
 };

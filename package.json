@@ -56,7 +56,7 @@
     "deploy": "gh-pages -d build"
     
   },
-  "homepage": "https://aihj.github.io/dash_pr/",
+  
   "eslintConfig": {
     "extends": [
       "react-app",

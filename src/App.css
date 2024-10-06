@@ -18,7 +18,7 @@
 
 .App {
   margin-left: 20px;
-  width: 160vh;
+  width: 172vh;
 }
 .h4 {
   text-align: left;
@@ -87,7 +87,7 @@ header {
   display: flex;
   align-items: center;
 
-  width: 380px;
+  width: 385px;
   height: 60px;
   border: 0.5px solid black;
   border-radius: 8px;
@@ -141,7 +141,7 @@ header {
   
 }
 .dateInput2 input {
-  width: calc(100%+10px);
+
   height: 18px; 
   background-color: #fff;
   z-index: 3;
@@ -150,7 +150,7 @@ header {
 
 
 .dateInput input {
-  width: calc(100%+10px);
+
   height: 14px; 
  
   

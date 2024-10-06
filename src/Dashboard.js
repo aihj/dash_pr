@@ -189,7 +189,7 @@ const data_d = {
                     step: 
                         {size:20},
                     font:
-                        {size:10},
+                        {size:15},
                     
                 }
                 
@@ -423,7 +423,7 @@ const data_d = {
 
 
 
-         <div className="row-span-1 col-span-2 h-1/2">
+        <div className="row-span-1 col-span-2 h-1/2">
             <Card>
         <br />
         <div className="radio" style={{textAlign: 'left'}}> 
@@ -437,8 +437,8 @@ const data_d = {
         
         {status === 1 &&  
         <div style ={{display: 'flex', gap: '20px' }}>        
-        <div style ={{width: '100vh', height: '125vh'}}>
-        
+        <div style ={{width: '110vh', height: '140vh'}}>
+    
         <br/>
         <Line data={data_c} options={options} plugins={ChartDataLabels}  /> 
         
@@ -448,7 +448,7 @@ const data_d = {
 
         {status === 2&&  
         <div style ={{display: 'flex', gap: '20px' }}>        
-        <div style ={{width: '120vh', height: '100vh'}}>
+        <div style ={{width: '110vh', height: '140vh'}}>
         
         <br/>
         <Line data={data_h} options={options} plugins={ChartDataLabels}  /> 
@@ -460,7 +460,7 @@ const data_d = {
 
         {status === 3&&  
         <div style ={{display: 'flex', gap: '20px' }}>        
-        <div style ={{width: '120vh', height: '100vh'}}>
+        <div style ={{width: '110vh', height: '140vh'}}>
         
         <br/>
         <Line data={data_d} options={options} plugins={ChartDataLabels}  /> 
@@ -493,7 +493,7 @@ const data_d = {
         <Card>
             {status===1 &&
         <div style = {{textAlign: 'center'}}>
-        <div className="ag-theme-alpine" style={{height: 500, width: 405}}>
+        <div className="ag-theme-alpine" style={{height: 475, width: 420}}>
         <AgGridReact
                rowData={row} columnDefs={colDefs}>               
            </AgGridReact>

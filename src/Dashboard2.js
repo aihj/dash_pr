@@ -402,7 +402,7 @@ const Dashboard2 = () => {
         
         {status === 1 &&  
         <div style ={{display: 'flex', gap: '20px' }}>        
-        <div style ={{width: '100vh', height: '130vh'}}>
+        <div style ={{width: '110vh', height: '140vh'}}>
         
         <br/>
         <Line data={data_c} options={options} plugins={ChartDataLabels}  /> 
@@ -413,7 +413,7 @@ const Dashboard2 = () => {
 
         {status === 2&&  
         <div style ={{display: 'flex', gap: '20px' }}>        
-        <div style ={{width: '125vh', height: '140vh'}}>
+        <div style ={{width: '110vh', height: '140vh'}}>
         
         <br/>
         <Line data={data_h} options={options} plugins={ChartDataLabels}  /> 
@@ -425,7 +425,7 @@ const Dashboard2 = () => {
 
         {status === 3&&  
         <div style ={{display: 'flex', gap: '20px' }}>        
-        <div style ={{width: '125vh', height: '140vh'}}>
+        <div style ={{width: '110vh', height: '140vh'}}>
         
         <br/>
         <Line data={data_d} options={options} plugins={ChartDataLabels}  /> 
