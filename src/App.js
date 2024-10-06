@@ -115,7 +115,7 @@ function App() {
         </div>
 
         <ul class="navbar__menu">
-        <li><a href="/">I. 서비스</a></li>
+        <li><a href="/home">I. 서비스</a></li>
         <li><a href="/chart1">II. 승인취소</a></li>
         <li><a href="/chart2">III. 등록지원</a></li>
         
@@ -137,7 +137,7 @@ function App() {
           we passes the imported component*/}
                     <Route
                         exact
-                        path="/"
+                        path="/home"
                         element={<Dashboard />}
                     />
 
