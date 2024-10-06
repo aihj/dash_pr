@@ -115,7 +115,7 @@ function App() {
         </div>
 
         <ul class="navbar__menu">
-        <li><a href="/home">I. 서비스</a></li>
+        <li><a href="/">I. 서비스</a></li>
         <li><a href="/chart1">II. 승인취소</a></li>
         <li><a href="/chart2">III. 등록지원</a></li>
         
@@ -130,14 +130,14 @@ function App() {
                       
           <br/>
             {/* This is the alias of BrowserRouter i.e. Router */}
-            <Router>
+            <Router basename={process.env.PUBLIC_URL}>
                 <Routes>
                     {/* This route is for home component 
           with exact path "/", in component props 
           we passes the imported component*/}
                     <Route
                         exact
-                        path="/home"
+                        path="/"
                         element={<Dashboard />}
                     />
 
